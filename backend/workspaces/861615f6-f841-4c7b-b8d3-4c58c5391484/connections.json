@@ -1,0 +1,100 @@
+{
+  "connections": [
+    {
+      "name": "MYDB2",
+      "connectionMethod": "native",
+      "dbType": "sqlite",
+      "host": "localhost",
+      "port": 3306,
+      "database": "sohamsahare",
+      "username": "",
+      "password": "",
+      "id": "conn_1_a54983e9"
+    },
+    {
+      "connectionMethod": "ssh",
+      "database": "",
+      "dbType": "mysql",
+      "host": "localhost",
+      "id": "conn_2_a759ba9a",
+      "name": "asdasd",
+      "password": "asdasdasdasdsad",
+      "port": 22,
+      "username": "asdasdasdasdsad"
+    },
+    {
+      "bucket": "asdasdasd",
+      "connectionMethod": "s3",
+      "database": "",
+      "dbType": "mysql",
+      "host": "localhost",
+      "id": "conn_3_19dba8c9",
+      "name": "soham123",
+      "password": "",
+      "port": 22,
+      "username": "",
+      "endpoint": "asdasdasd",
+      "region": "asdasd",
+      "accessKey": "asdasd",
+      "secretKey": "asdasdasd"
+    },
+    {
+      "connectionMethod": "native",
+      "database": "asdasd",
+      "dbType": "mysql",
+      "host": "localhost",
+      "id": "conn_4_e6907068",
+      "name": "asdasdqwewe",
+      "password": "asdasd",
+      "port": 3306,
+      "username": "asdasd"
+    },
+    {
+      "connectionMethod": "mongo",
+      "database": "asdasd",
+      "dbType": "mysql",
+      "host": "localhost",
+      "id": "conn_5_e074f0fb",
+      "name": "asdasdad",
+      "password": "asdasd",
+      "port": 3306,
+      "username": "asdasdasd"
+    },
+    {
+      "connectionMethod": "jdbc",
+      "database": "",
+      "dbType": "mysql",
+      "host": "localhost",
+      "id": "conn_6_5fb36a67",
+      "name": "asdasd",
+      "password": "",
+      "port": 3306,
+      "username": "",
+      "jdbcJarPath": "asdasd",
+      "jdbcUrl": "asdasdas",
+      "jdbcDriver": "dasdasdasdasd"
+    },
+    {
+      "name": "asdasdad",
+      "connectionMethod": "native",
+      "dbType": "mysql",
+      "host": "localhost",
+      "port": 3306,
+      "database": "",
+      "username": "",
+      "password": "",
+      "id": "conn_8_3365d5c8"
+    },
+    {
+      "name": "soham",
+      "connectionMethod": "jdbc",
+      "dbType": "mysql",
+      "host": "localhost",
+      "port": 3306,
+      "database": "",
+      "username": "",
+      "password": "",
+      "id": "conn_8_9be527e4"
+    }
+  ]
+}
