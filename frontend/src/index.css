@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+
+  /* Light theme (default) */
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafafa;
+    --bg-hover: #f5f5f5;
+    --border-color: #eaeaea;
+    --text-primary: #000000;
+    --text-secondary: #454545;
+    --text-tertiary: #737373;
+    --bg-surface: #ffffff;
+    --bg-primary-opacity: rgba(255, 255, 255, 0.7);
+    --accent-blue: #0070f3;
+    --accent-blue-hover: #0051b2;
+  }
+
+  /* Dark theme */
+  .dark {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --bg-hover: #222222;
+    --bg-surface: #1a1a1a;
+    --border-color: #262626;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --text-tertiary: #52525b;
+    --bg-primary-opacity: rgba(0, 0, 0, 0.7);
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+}
+
+@layer components {
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500 dark:bg-gray-500;
+  }
+
+  /* React Flow custom styles */
+  .react-flow__node {
+    @apply rounded-lg shadow-vercel-md border-2 transition-all duration-200;
+  }
+
+  .react-flow__node.selected {
+    @apply border-vercel-accent-blue;
+  }
+
+  .react-flow__edge-path {
+    @apply stroke-2;
+    stroke: var(--text-tertiary);
+  }
+
+  .react-flow__edge.selected .react-flow__edge-path {
+    @apply stroke-vercel-accent-blue !important;
+  }
+
+  .react-flow__controls {
+    @apply bg-white dark:bg-vercel-dark-surface border border-vercel-light-border dark:border-vercel-dark-border rounded-lg shadow-vercel-md;
+  }
+
+  .react-flow__controls-button {
+    @apply bg-transparent border-b border-vercel-light-border dark:border-vercel-dark-border text-vercel-light-text dark:text-vercel-dark-text;
+  }
+
+  .react-flow__controls-button:hover {
+    @apply bg-vercel-light-hover dark:bg-vercel-dark-hover;
+  }
+
+  .react-flow__minimap {
+    @apply bg-white dark:bg-vercel-dark-surface border border-vercel-light-border dark:border-vercel-dark-border rounded-lg shadow-vercel-md;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
