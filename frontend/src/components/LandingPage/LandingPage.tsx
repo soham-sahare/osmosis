@@ -967,7 +967,7 @@ export const LandingPage: React.FC = () => {
       <footer className="bg-white dark:bg-[#050505] border-t border-gray-200 dark:border-[#262626] py-10">
         <div className="container mx-auto px-6 text-center">
           <p className="text-gray-500 dark:text-[#666] text-sm">
-            © {new Date().getFullYear()} Osmosis MOT SMART HRP.
+            © {new Date().getFullYear()} sohamsahare.
           </p>
         </div>
       </footer>
