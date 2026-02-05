@@ -259,7 +259,7 @@ export const LandingPage: React.FC = () => {
                   <div className="h-4 w-[1px] bg-[#333]"></div>
                   <div>
                     <div className="text-sm font-bold text-white">
-                      MOT SMART HRP
+                      sohamsahare
                     </div>
                     <div className="flex items-center gap-1.5">
                       <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
