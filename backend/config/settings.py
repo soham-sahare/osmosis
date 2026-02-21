@@ -10,8 +10,8 @@ class Config:
     PORT = int(os.getenv('PORT', 5001))
     DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
     
-    # Detect if running on Vercel (read-only filesystem)
-    IS_VERCEL = os.environ.get('VERCEL') == '1'
+    # Detect if running on Vercel or AWS Lambda (read-only filesystem)
+    IS_VERCEL = os.environ.get('VERCEL') == '1' or 'VERCEL_URL' in os.environ or 'AWS_EXECUTION_ENV' in os.environ
 
     # Database Configuration
     # Supabase uses POSTGRES_URL_NON_POOLING or DATABASE_URL
