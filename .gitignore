@@ -45,3 +45,4 @@ Thumbs.db
 htmlcov/
 .pytest_cache/
 .vercel
+.env*.local

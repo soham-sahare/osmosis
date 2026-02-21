@@ -1,10 +1,18 @@
-from kafka import KafkaConsumer, KafkaProducer
 import json
 import time
 import requests
 import struct
 import io
-import fastavro
+
+try:
+    from kafka import KafkaConsumer, KafkaProducer
+    import fastavro
+    KAFKA_AVAILABLE = True
+except ImportError:
+    KAFKA_AVAILABLE = False
+    KafkaConsumer = None
+    KafkaProducer = None
+    fastavro = None
 
 class SimpleSchemaRegistryClient:
     """Minimal Schema Registry Client to fetch/register schemas."""

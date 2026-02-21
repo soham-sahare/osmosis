@@ -7,9 +7,17 @@
       "config": {
         "distDir": "dist"
       }
+    },
+    {
+      "src": "backend/vercel_entry.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/vercel_entry.py"
+    },
     {
       "src": "/(.*)",
       "dest": "/frontend/$1"
