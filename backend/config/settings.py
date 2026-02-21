@@ -24,13 +24,7 @@ class Config:
         DATABASE_PATH = db_url
         UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', '/tmp/uploads' if IS_VERCEL else 'uploads')
     else:
-        # Fallback to SQLite
-        if IS_VERCEL:
-            DATABASE_PATH = os.getenv('DATABASE_PATH', '/tmp/osmosis.db')
-            UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', '/tmp/uploads')
-        else:
-            DATABASE_PATH = os.getenv('DATABASE_PATH', './data/osmosis.db')
-            UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', 'uploads')
+        raise ValueError("CRITICAL: DATABASE_URL or POSTGRES_URL_NON_POOLING is missing from Environment Variables.")
     
     # Security
     CORS_ORIGINS = os.getenv('CORS_ORIGINS', '*').split(',')
@@ -40,7 +34,6 @@ class Config:
     def ensure_dirs():
         """Ensure necessary directories exist."""
         try:
-            os.makedirs(os.path.dirname(Config.DATABASE_PATH), exist_ok=True)
             os.makedirs(Config.UPLOAD_FOLDER, exist_ok=True)
         except OSError as e:
             # Handle strictly read-only environments gracefully

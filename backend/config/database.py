@@ -3,11 +3,7 @@ from sqlalchemy import create_engine, text
 
 def get_engine(db_path):
     """Create a database engine via SQLAlchemy."""
-    if db_path.startswith("postgresql://"):
-        return create_engine(db_path)
-    if os.path.isabs(db_path):
-        return create_engine(f'sqlite:///{db_path}')
-    return create_engine(f'sqlite:///{db_path}')
+    return create_engine(db_path)
 
 def init_db(db_path):
     """Initialize the database with required tables using SQLAlchemy to support Postgres & SQLite."""

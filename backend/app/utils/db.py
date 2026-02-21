@@ -9,15 +9,7 @@ def get_db_path():
 class Database:
     def __init__(self, db_path):
         self.db_path = db_path
-        # Use simple sqlite prefix. For absolute paths in sqlite with sqlalchemy, 3 slashes are needed for relative, 4 for absolute.
-        # But here 'db_path' might be relative './data/...'. 
-        # SQLAlchemy sqlite:////absolute/path or sqlite:///relative/path
-        if db_path.startswith("postgresql://"):
-             self.engine = create_engine(db_path)
-        elif os.path.isabs(db_path):
-             self.engine = create_engine(f'sqlite:///{db_path}')
-        else:
-             self.engine = create_engine(f'sqlite:///{db_path}')
+        self.engine = create_engine(db_path)
 
     def get_connection(self):
         return self.engine.connect()
