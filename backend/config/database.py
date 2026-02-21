@@ -12,7 +12,10 @@ def get_db_connection(db_path):
 def init_db(db_path):
     """Initialize the database with required tables."""
     # Create data directory if it doesn't exist
-    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+    try:
+        os.makedirs(os.path.dirname(db_path), exist_ok=True)
+    except OSError as e:
+        print(f"Skipping directory creation due to read-only filesystem: {e}")
     
     conn = get_db_connection(db_path)
     cursor = conn.cursor()
