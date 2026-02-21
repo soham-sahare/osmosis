@@ -22,4 +22,4 @@ RUN mkdir -p data uploads
 EXPOSE 5001
 
 # Run the application
-CMD ["python", "app.py"]
+CMD ["python", "main.py"]

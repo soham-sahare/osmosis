@@ -659,7 +659,7 @@ export const LandingPage: React.FC = () => {
                     <span className="text-gray-500 dark:text-[#666]">
                       git:(main)
                     </span>{" "}
-                    python app.py
+                    python main.py
                   </div>
                   <div className="text-gray-500 dark:text-[#a3a3a3] pl-4">
                     INFO: Started server process [12345]
