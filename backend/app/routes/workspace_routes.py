@@ -4,7 +4,8 @@ from app.utils.api_helpers import api_response
 import os
 
 workspace_bp = Blueprint('workspace', __name__)
-workspace_service = WorkspaceService(os.getenv('DATABASE_PATH', './data/osmosis.db'))
+from config.settings import config
+workspace_service = WorkspaceService(config.DATABASE_PATH)
 
 @workspace_bp.route('/workspaces', methods=['GET'])
 @api_response

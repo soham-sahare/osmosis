@@ -5,7 +5,8 @@ import os
 import json
 
 job_bp = Blueprint('job', __name__)
-job_service = JobService(os.getenv('DATABASE_PATH', './data/osmosis.db'))
+from config.settings import config
+job_service = JobService(config.DATABASE_PATH)
 
 @job_bp.route('/jobs', methods=['GET'])
 @api_response
@@ -44,7 +45,7 @@ def create_job():
 from app.services.scheduler_service import scheduler_service
 from app.services.execution_service import ExecutionService
 
-execution_service = ExecutionService(os.getenv('DATABASE_PATH', './data/osmosis.db'))
+execution_service = ExecutionService(config.DATABASE_PATH)
 
 def execute_job_task(job_id):
     """Wrapper function for scheduled job execution."""

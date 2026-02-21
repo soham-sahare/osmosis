@@ -3,7 +3,8 @@ from app.services.execution_service import ExecutionService
 import os
 
 execution_bp = Blueprint('execution', __name__)
-execution_service = ExecutionService(os.getenv('DATABASE_PATH', './data/osmosis.db'))
+from config.settings import config
+execution_service = ExecutionService(config.DATABASE_PATH)
 
 @execution_bp.route('/jobs/<job_id>/execute', methods=['POST'])
 def execute_job(job_id):
