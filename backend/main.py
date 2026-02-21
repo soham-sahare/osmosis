@@ -33,6 +33,11 @@ def create_app():
     from app.services.scheduler_service import scheduler_service
     scheduler_service.init_app(app)
     
+    @app.route('/')
+    @app.route('/api')
+    def root_status():
+        return {'status': 'okay', 'message': 'Osmosis API is running'}, 200
+
     @app.route('/api/health')
     def health():
         return {'status': 'healthy'}, 200
