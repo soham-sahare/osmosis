@@ -10,21 +10,30 @@ class Config:
     PORT = int(os.getenv('PORT', 5001))
     DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
     
+    # Detect if running on Vercel (read-only filesystem)
+    IS_VERCEL = os.environ.get('VERCEL') == '1'
+
     # Database Configuration
-    DATABASE_PATH = os.getenv('DATABASE_PATH', './data/osmosis.db')
+    if IS_VERCEL:
+        DATABASE_PATH = os.getenv('DATABASE_PATH', '/tmp/osmosis.db')
+        UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', '/tmp/uploads')
+    else:
+        DATABASE_PATH = os.getenv('DATABASE_PATH', './data/osmosis.db')
+        UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', 'uploads')
     
     # Security
     CORS_ORIGINS = os.getenv('CORS_ORIGINS', '*').split(',')
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key')
     
-    # File Paths
-    UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', 'uploads')
-    
     @staticmethod
     def ensure_dirs():
         """Ensure necessary directories exist."""
-        os.makedirs(os.path.dirname(Config.DATABASE_PATH), exist_ok=True)
-        os.makedirs(Config.UPLOAD_FOLDER, exist_ok=True)
+        try:
+            os.makedirs(os.path.dirname(Config.DATABASE_PATH), exist_ok=True)
+            os.makedirs(Config.UPLOAD_FOLDER, exist_ok=True)
+        except OSError as e:
+            # Handle strictly read-only environments gracefully
+            print(f"Directory creation skipped or failed: {e}")
 
 # Global config instance
 config = Config()
