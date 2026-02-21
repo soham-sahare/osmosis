@@ -16,11 +16,15 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/vercel_entry.py"
+      "dest": "/backend/vercel_entry.py"
+    },
+    {
+      "src": "/(assets/.*|.*\\.(ico|svg|png|jpg|jpeg|css|js|woff|woff2|ttf|eot))$",
+      "dest": "/frontend/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/frontend/$1"
+      "dest": "/frontend/index.html"
     }
   ]
 }
